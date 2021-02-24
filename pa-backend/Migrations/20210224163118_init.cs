@@ -7,26 +7,27 @@ namespace pa_backend.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "Eventos",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(nullable: false)
+                    EventoId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(nullable: true),
-                    Idade = table.Column<int>(nullable: false),
-                    Email = table.Column<string>(nullable: true),
-                    Telefone = table.Column<string>(nullable: true)
+                    Local = table.Column<string>(nullable: true),
+                    DataEvento = table.Column<string>(nullable: true),
+                    Tema = table.Column<string>(nullable: true),
+                    QtdPessoas = table.Column<int>(nullable: false),
+                    Lote = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Eventos", x => x.EventoId);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Eventos");
         }
     }
 }

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
-  users: any;
+  eventos: any;
 
   constructor(private http: HttpClient) {}
 
@@ -18,9 +18,9 @@ export class UsersComponent implements OnInit {
 
   getUsers(): void {
     // tslint:disable-next-line: deprecation
-    this.users = this.http.get('http://localhost:5000/api/values').subscribe(
+    this.eventos = this.http.get('http://localhost:5000/api/values').subscribe(
       (resp) => {
-        this.users = resp;
+        this.eventos = resp;
       },
       (err) => {
         console.log(err);

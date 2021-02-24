@@ -15,22 +15,24 @@ namespace pa_backend.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
-            modelBuilder.Entity("pa_backend.Model.User", b =>
+            modelBuilder.Entity("pa_backend.Model.Evento", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("EventoId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Email");
+                    b.Property<string>("DataEvento");
 
-                    b.Property<int>("Idade");
+                    b.Property<string>("Local");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Lote");
 
-                    b.Property<string>("Telefone");
+                    b.Property<int>("QtdPessoas");
 
-                    b.HasKey("UserId");
+                    b.Property<string>("Tema");
 
-                    b.ToTable("Users");
+                    b.HasKey("EventoId");
+
+                    b.ToTable("Eventos");
                 });
 #pragma warning restore 612, 618
         }

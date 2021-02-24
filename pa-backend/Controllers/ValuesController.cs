@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using pa_backend.Data;
-using pa_backend.Model;
 
 namespace pa_backend.Controllers
 {
@@ -26,13 +25,13 @@ namespace pa_backend.Controllers
         {
             try
             {
-                var results = await _context.Users.ToListAsync();
+                var results = await _context.Eventos.ToListAsync();
                 return Ok(results);
             }
             catch (System.Exception)
             {
-
-                return StatusCode(StatusCodes.Status500InternalServerError, "Erro de banco de dados. Entre em contato com o administrador do sistema!");
+                
+                return StatusCode(StatusCodes.Status500InternalServerError, "Bad request in database");
             }
         }
 
@@ -42,13 +41,13 @@ namespace pa_backend.Controllers
         {
             try
             {
-                var results = await _context.Users.FirstOrDefaultAsync(x => x.UserId == id);
+                var results = await _context.Eventos.FirstOrDefaultAsync(x => x.EventoId == id);
                 return Ok(results);
             }
             catch (System.Exception)
             {
-
-                return StatusCode(StatusCodes.Status500InternalServerError, "Erro de banco de dados. Entre em contato com o administrador do sistema!");
+                
+                return StatusCode(StatusCodes.Status500InternalServerError, "Bad request in database");
             }
         }
 
