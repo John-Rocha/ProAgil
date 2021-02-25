@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
-  eventos: any;
+  eventos: any = [];
 
   constructor(private http: HttpClient) {}
 
